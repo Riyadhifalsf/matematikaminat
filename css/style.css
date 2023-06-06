@@ -157,7 +157,9 @@ section h3 {
 	padding:20px;
 	box-sizing: border-box;
 	text-align: center;
-	float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .icon {
 	width:100px;
@@ -165,9 +167,11 @@ section h3 {
 	border:1px solid;
 	border-radius: 50%;
 	text-align: center;
-	line-height: 90px;
 	font-size: 40px;
 	margin:0 auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 .box .col-4 h4 {
 	margin: 20px -5px;
