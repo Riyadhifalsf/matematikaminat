@@ -1,0 +1,431 @@
+* {
+	padding:0;
+	margin:0;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+small {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+body {
+    background: #0e0e0e;
+}
+
+@font-face {
+    font-family: godofwar;
+    src: url('../font/GODOFWAR.TTF');
+}
+
+.medsos {
+	padding:5px 0;
+	background-color: #6f1180;
+    color: #fff;
+}
+.medsos ul li {
+	display: inline-block;
+	color: #fff;
+	margin-right: 10px;
+}
+.container {
+	width:80%;
+	margin:0 auto;
+}
+
+.container h1 a {
+    font-family: godofwar;
+}
+
+.container:after {
+	content:'';
+	display: block;
+	clear: both;
+}
+header h1 {
+	float: left;
+	padding:15px 0;
+	color: #6f1180;
+}
+header ul {
+	float: right;
+    position: relative;
+    left: 130px;
+    
+}
+header ul li {
+	display: inline-block;
+}
+header ul li a {
+	padding:25px 20px;
+	display: inline-block;
+    font-family: sans-serif;
+    font-weight: bold;
+	color: #6f1180;
+}
+
+header ul li a:hover {
+	background-color: #6f1180;
+	color: #ffffff;
+}
+.mobile-menu {
+    display: none;
+}
+.active {
+	background-color: #6f1180;
+}
+.active a {
+	color: #fff;
+}
+.banner {
+	height: 60vh;
+	background-image: url('../img/bg-banner.jpg');
+	background-size: cover;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -100px;
+}
+.banner:after {
+	content:'';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #6f1180;
+}
+.banner h2 {
+	color: #fff;
+	z-index: 1;
+	padding: 20px 25px;
+	border:3px solid #fff;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+section {
+	padding:50px 0;
+}
+section h3 {
+	text-align: center;
+	padding:20px 0;
+	color: #6f1180;
+	margin-bottom: 25px;
+}
+.about,
+.service {
+    padding-bottom: 100px;
+}
+
+.about p {
+	color: #666;
+	word-spacing: 2px;
+	line-height: 25px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.service {
+    font-family: sans-serif;
+    font-weight: bold;
+    background: #0e0e0e;
+}
+.service h3 {
+    text-shadow: 1px 1px 2px #6f1180;
+}
+.box {
+	color: #6f1180;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.box:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.box .col-4 {
+	width:25%;
+	padding:20px;
+	box-sizing: border-box;
+	text-align: center;
+	float: left;
+}
+.icon {
+	width:100px;
+	height: 100px;
+	border:1px solid;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 90px;
+	font-size: 40px;
+	margin:0 auto;
+}
+.box .col-4 h4 {
+	margin: 20px -5px;
+}
+
+/* MATERI 1 */
+.card {
+    border: 1px solid white;
+}
+footer {
+	padding:30px 0;
+	background-color: rgb(0, 0, 0);
+	color: #fff;
+	text-align: center;
+}
+.bg-loader {
+	background-color: #eee;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.bg-loader .loader {
+	width:100px;
+	height: 100px;
+	border:3px solid #fff;
+	border-radius: 50%;
+	border-top-color: #6f1180;
+	border-right-color: #6f1180;
+	border-bottom-color: #6f1180;
+	animation: puterin .8s linear infinite;
+}
+.label {
+	background-color: #6f1180;
+	color: #fff;
+}
+
+.label p {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.profile .img {
+    background-color: rgb(0, 0, 0);
+    border: 3px solid rgb(172, 172, 172);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-image: url('../img/dborasepele.jpeg');
+    background-size: cover;
+    margin: auto;
+    overflow: hidden;
+}
+
+.img p {
+    padding: 1000000px;
+}
+
+.profile {
+    text-align: center;
+    padding-bottom: 100px;
+    color: #6f1180;
+}
+
+.profile h1 {
+    font-family: sans-serif;
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+
+.profile h3 span {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    bottom: 0;
+    width: 200px;
+    background-color: #6f1180;
+    transition: .3s;
+    z-index: 30;
+}
+
+.sidebar ul li {
+    padding: 24px;
+    list-style: none;
+    text-align: center;
+    transition: .3s;
+    transition-property: background-color;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar ul li:hover {
+    background-color: #6f1180;
+}
+
+#check:checked ~ .sidebar {
+    right: 0;
+}
+
+#check {
+    display: none;
+}
+
+#skills .bar {
+    height: 30px;
+    background-color: white;
+    border: 1px solid;
+    margin: 5px 0 20px 0;
+    overflow: hidden;
+}
+
+#skills h3, #skills h4 {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.bar .nilai {
+    height: 30px;
+    background-color: red;
+    display: inline-block;
+    color: white;
+    padding: 5px;text-align: center;
+}
+
+.html {
+    width: 90%;
+}
+
+.css {
+    width: 75%;
+}
+
+.javascript {
+    width: 5%;
+}
+
+.ruby {
+    width: 2%;
+}
+
+.php {
+    width: 10%;
+}
+
+#galeri h3 {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.col-4 span p {
+    font-family: arial;
+    font-weight: bold;
+    color: #6f1180;
+}
+
+.col-4 {
+    width: 25%;
+    box-sizing: border-box;
+    padding: 5px;
+    float: left;
+    text-align: center;
+}
+
+.col-4 img {
+    width: 90%;
+    border: 1px solid black;
+}
+
+.col-4 a:hover img {
+    transform: scale(1.2);
+}
+
+
+
+@keyframes puterin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@media screen and (max-width: 768px){
+	.container {
+		width:100%;
+	}
+    .medsos ul{
+        padding: 0 30px;
+    }
+	header h1 {
+		text-align: center;
+		float: none;
+	}
+	header ul {
+		text-align: center;
+		float: none;
+        display: none;
+	}
+    .mobile {
+        background-color: #6f1180;
+        width: 100%;
+        height: 32px;
+        padding: 10px 0;
+        border-bottom: 2px solid black;
+    }
+    .mobile-menu {
+        float: right;
+        display: block;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+    .mobile-menu:hover {
+        color: white;
+    }
+    .close {
+        color: white;
+        margin-left: 160px;
+        transition: .3s;
+    }
+    .banner {
+        height: 40vh;
+        background-position-y: 0px;
+    }
+
+	.box .col-4 {
+		width:100%;
+		float: none;
+		margin-bottom: 20px;
+	}
+    #skills {
+        width: 90%;
+        margin: auto;
+    }
+    .col-4 {
+        width: 50%;
+        padding: 10px;
+        line-height: 30px;
+    }
+    .label {
+        padding: 20px;
+    }
+    .label p {
+        padding: 0 10px;
+    }
+    .sidebar ul li a{
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+}
