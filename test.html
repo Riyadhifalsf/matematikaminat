@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Puzzle Game</title>
+  <style>
+    .game-container {
+      display: flex;
+    }
+    .puzzle-container {
+      display: grid;
+      gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      font-size: 36px;
+    }
+    .puzzle-piece {
+      width: calc(100% / var(--size));
+      height: calc(100% / var(--size));
+      background-color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      transition: transform 0.3s;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .button-container button {
+      padding: 15px 30px;
+      font-size: 20px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .option-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 20px;
+    }
+    .option-container label {
+      margin-bottom: 5px;
+    }
+    .option-container select {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <div class="option-container">
+      <label for="sizeOption">Ukuran:</label>
+      <select id="sizeOption">
+        <option value="3">3x3</option>
+        <option value="4">4x4</option>
+        <option value="5">5x5</option>
+        <option value="6">6x6</option>
+        <option value="7">7x7</option>
+        <option value="8">8x8</option>
+        <option value="9">9x9</option>
+        <option value="10">10x10</option>
+      </select>
+      <br>
+      <button id="randomButton">Acak</button>
+      <button id="giveUpButton">Menyerah</button>
+    </div>
+  
+    <div class="puzzle-container">
+    </div>
+  </div>
+
+  <script>
+    const gameContainer = document.querySelector('.game-container');
+    const puzzleContainer = document.querySelector('.puzzle-container');
+    const randomButton = document.getElementById('randomButton');
+    const giveUpButton = document.getElementById('giveUpButton');
+    const sizeOption = document.getElementById('sizeOption');
+
+    randomButton.addEventListener('click', () => {
+      randomizePuzzle();
+    });
+
+    giveUpButton.addEventListener('click', () => {
+      confirmGiveUp();
+    });
+
+    sizeOption.addEventListener('change', () => {
+      size = parseInt(sizeOption.value);
+      createPuzzle();
+    });
+
+    let size = parseInt(sizeOption.value);
+
+    function createPuzzle() {
+      puzzleContainer.innerHTML = '';
+      puzzleContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+      puzzleContainer.style.width = `${size * 100}px`;
+      puzzleContainer.style.height = `${size * 100}px`;
+
+      for (let i = 1; i < size * size; i++) {
+        const piece = document.createElement('div');
+        piece.classList.add('puzzle-piece');
+        piece.dataset.value = i;
+        piece.innerText = i;
+        piece.addEventListener('click', () => {
+          movePiece(piece);
+        });
+        puzzleContainer.appendChild(piece);
+      }
+
+      const emptyPiece = document.createElement('div');
+      emptyPiece.classList.add('puzzle-piece', 'empty');
+      emptyPiece.dataset.value = '';
+      puzzleContainer.appendChild(emptyPiece);
+
+      randomizePuzzle();
+    }
+
+    function movePiece(piece) {
+      const pieceIndex = Array.from(puzzleContainer.children).indexOf(piece);
+      const emptyPiece = puzzleContainer.querySelector('.empty');
+      const emptyIndex = Array.from(puzzleContainer.children).indexOf(emptyPiece);
+
+      if (isAdjacent(pieceIndex, emptyIndex)) {
+        swapPieces(piece, emptyPiece);
+        checkWin();
+      }
+    }
+
+    function isAdjacent(index1, index2) {
+      const row1 = Math.floor(index1 / size);
+      const col1 = index1 % size;
+      const row2 = Math.floor(index2 / size);
+      const col2 = index2 % size;
+
+      return (
+        (row1 === row2 && Math.abs(col1 - col2) === 1) ||
+        (col1 === col2 && Math.abs(row1 - row2) === 1)
+      );
+    }
+
+    function swapPieces(piece1, piece2) {
+      const tempValue = piece1.dataset.value;
+      piece1.dataset.value = piece2.dataset.value;
+      piece2.dataset.value = tempValue;
+
+      piece1.innerText = piece1.dataset.value;
+      piece2.innerText = piece2.dataset.value;
+    }
+
+    function checkWin() {
+      const pieces = puzzleContainer.querySelectorAll('.puzzle-piece');
+      const values = Array.from(pieces).map(piece => Number(piece.dataset.value));
+      const sortedValues = values.slice().sort((a, b) => a - b);
+
+      if (JSON.stringify(sortedValues) === JSON.stringify(values)) {
+        alert('Selamat! Anda menyelesaikan puzzle.');
+      }
+    }
+
+    function randomizePuzzle() {
+      const pieces = puzzleContainer.querySelectorAll('.puzzle-piece');
+      const values = Array.from(pieces).map(piece => Number(piece.dataset.value));
+      const emptyPiece = puzzleContainer.querySelector('.empty');
+      const emptyIndex = Array.from(pieces).indexOf(emptyPiece);
+
+      for (let i = values.length - 2; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [values[i], values[j]] = [values[j], values[i]];
+      }
+
+      values.forEach((value, index) => {
+        pieces[index].dataset.value = value;
+        pieces[index].innerText = value;
+      });
+
+      emptyPiece.dataset.value = '';
+      emptyPiece.innerText = '';
+    }
+
+    function confirmGiveUp() {
+      const confirmation = confirm('Apakah Anda yakin ingin menyerah? Permainan akan diatur ulang.');
+
+      if (confirmation) {
+        giveUp();
+      }
+    }
+
+    function giveUp() {
+      const pieces = puzzleContainer.querySelectorAll('.puzzle-piece');
+      const values = Array.from(pieces).map(piece => Number(piece.dataset.value));
+      const sortedValues = Array.from(pieces).map((_, index) => index + 1);
+
+      pieces.forEach((piece, index) => {
+        piece.dataset.value = sortedValues[index];
+        piece.innerText = sortedValues[index];
+      });
+    }
+
+    createPuzzle();
+  </script>
+</body>
+</html>

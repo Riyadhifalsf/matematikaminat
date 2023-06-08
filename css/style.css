@@ -184,7 +184,41 @@ section h3 {
 /* MATERI 1 */
 .card {
     border: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px white;
+    line-height: 30px;
+    margin-bottom: max-content;
 }
+
+.card-title {
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 30px;
+}
+
+/* Navigasi next */
+.navigasi {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.navigasi button {
+    padding: 10px 20px;
+    background-color: #6f1180;
+    border: none;
+    border-radius: 20px;
+}
+
+.navigasi button:hover {
+    transform: scale(1.2);
+    color: white;
+    transition: .5;
+}
+
 footer {
 	padding:30px 0;
 	background-color: rgb(0, 0, 0);

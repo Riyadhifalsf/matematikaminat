@@ -29,3 +29,12 @@ let words = '';
 	setTimeout(ngetik, 1000);
 
 })();
+
+// Button untuk memindahkan halaman
+function showConfirmation() {
+	var result = confirm("Apakah Anda yakin?");
+	if (result) {
+	  // Jika pengguna memilih OK
+	  window.location.href = "gamepuzzle/index.html";
+	}
+  }
