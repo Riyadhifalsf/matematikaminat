@@ -4,7 +4,7 @@ $(document).ready(function() {
 })
 
 //Efek Ngetik
-const txtElement = ['Murid Teladan', 'Web Developer', 'Blogger'];
+const txtElement = ['Murid Teladan', 'Rajin Mengerjakan Tugas', 'Tidak berkata kasar'];
 let count = 0;
 let txtIndex = 0;
 let currentTxt = '';
@@ -26,13 +26,13 @@ let words = '';
 		txtIndex = 0;
 	}
 
-	setTimeout(ngetik, 1000);
+	setTimeout(ngetik, 500);
 
 })();
 
 // Button untuk memindahkan halaman
 function showConfirmation() {
-	var result = confirm("Apakah Anda yakin?");
+	var result = confirm("Tekan selesai dan lanjutkan ke halaman berikutnya");
 	if (result) {
 	  // Jika pengguna memilih OK
 	  window.location.href = "gamepuzzle/index.html";

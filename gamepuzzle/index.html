@@ -7,18 +7,17 @@
 </head>
 <body>
 
-    <div class="puzzle-container">
-        <div class="puzzle-piece" data-value="1">1</div>
-        <div class="puzzle-piece" data-value="2">2</div>
-        <div class="puzzle-piece" data-value="3">3</div>
-        <div class="puzzle-piece" data-value="4">4</div>
-        <div class="puzzle-piece" data-value="5">5</div>
-        <div class="puzzle-piece" data-value="6">6</div>
-        <div class="puzzle-piece" data-value="7">7</div>
-        <div class="puzzle-piece" data-value="8">8</div>
-        <div class="puzzle-piece" data-value=""></div>
-      </div>
-
+  <div class="puzzle-container">
+    <div class="puzzle-piece" style="background-image: url('1.jpg'); background-size: cover;" onclick="movePiece(1)"></div>
+    <div class="puzzle-piece" style="background-image: url('2.jpg'); background-size: cover;" onclick="movePiece(2)"></div>
+    <div class="puzzle-piece" style="background-image: url('3.jpg'); background-size: cover;" onclick="movePiece(3)"></div>
+    <div class="puzzle-piece" style="background-image: url('4.jpg'); background-size: cover;" onclick="movePiece(4)"></div>
+    <div class="puzzle-piece" style="background-image: url('5.jpg'); background-size: cover;" onclick="movePiece(5)"></div>
+    <div class="puzzle-piece" style="background-image: url('6.jpg'); background-size: cover;" onclick="movePiece(6)"></div>
+    <div class="puzzle-piece" style="background-image: url('7.jpg'); background-size: cover;" onclick="movePiece(7)"></div>
+    <div class="puzzle-piece" style="background-image: url('8.jpg'); background-size: cover;" onclick="movePiece(8)"></div>
+    <div class="puzzle-piece" style="background-image: none;"></div>
+  </div>
       
       <div class="button-container">
         <button id="randomButton">Acak</button>
@@ -41,7 +40,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
-            <form action="https://docs.google.com/forms/d/e/FORM_ID/formResponse" method="POST">
+            <form action="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEwbU2ewdeoSAfpVdtCHGs98Kv1UqV9KfsAaLdFCCHc2pzTG-78JfwaYpKSD-K5s3IFpBgYX7XGplb/submit" method="POST">
               <div class="form-group">
                 <label for="name">Nama:</label>
                 <input type="text" class="form-control" id="name" name="entry.1" required>
