@@ -267,6 +267,7 @@ footer {
     background-size: cover;
     margin: auto;
     overflow: hidden;
+    
 }
 
 .img p {
@@ -368,7 +369,6 @@ footer {
 .php {
     width: 10%;
 }
-
 #galeri h3 {
     font-family: sans-serif;
     font-weight: bold;
@@ -392,7 +392,6 @@ footer {
     width: 90%;
     border: 1px solid black;
 }
-
 .col-4 a:hover img {
     transform: scale(1.2);
 }

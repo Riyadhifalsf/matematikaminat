@@ -4,7 +4,7 @@ $(document).ready(function() {
 })
 
 //Efek Ngetik
-const txtElement = ['Programmer', 'Web Developer', 'Blogger'];
+const txtElement = ['Murid Teladan', 'Web Developer', 'Blogger'];
 let count = 0;
 let txtIndex = 0;
 let currentTxt = '';
